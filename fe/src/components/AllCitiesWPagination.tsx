@@ -18,16 +18,17 @@ if(!cities){
 
 console.log('totalCities ', totalCities);
 
-const onChangePage = value =>{
+const onChangePage = (value:number) =>{
   setPageNr(value);
   
 }
 const PaginationConfig = {
   defaultCurrent: 1,
   defaultPageSize: 5,
+  showSizeChanger: false,
   total: totalCities,
   onChange: onChangePage,
-  showTotal: total => `Total ${total} items `
+  showTotal: (total: number) => `Total ${total} items `
 }
 
   
@@ -71,7 +72,9 @@ const PaginationConfig = {
         )} 
     </div>
     </div>
+    <div className="d-flex justify-content-center">
       <Pagination {...PaginationConfig} />
+    </div>
     </>
   );
 }
